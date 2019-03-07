@@ -1,0 +1,97 @@
+<html>
+
+<head>
+  <title>Ex1</title>
+  <script>
+    function validaCpf(cpf) { // 32239440287
+
+      var arrCpf = cpf.value.split("");
+      var dv1 = 0;
+
+      for (var i = 0; i <= 8; i++) {
+        dv1 += parseInt(arrCpf[i]) * (i + 1);
+      }
+
+      dv1 = dv1 % 11;
+
+      if (dv1 >= 10) {
+        dv1 = 0;
+      }
+
+      if (dv1 != arrCpf[9]) {
+        alert("CPF Inválido");
+      } else {
+
+        var dv2 = 0;
+
+        for (var j = 0; j <= 9; j++) {
+          dv2 += parseInt(arrCpf[j]) * (j + 1);
+        }
+
+        dv2 = dv2 % 11;
+
+        if (dv2 >= 10) {
+          dv2 = 0;
+        }
+
+        if (dv2 != arrCpf[10]) {
+          alert("CPF Invalido");
+        } else {
+          alert("CPF Valido");
+        }
+      }
+    }
+    // correto
+    function validaCpfCorreto(cpf) { // 32239440287
+
+        var arrCpf = cpf.value.split("");
+        var dv1 = 0;
+
+        for (var i = 0; i <= 8; i++) {
+          dv1 += parseInt(arrCpf[i]) * (10 - i);
+        }
+
+        dv1 = (dv1 * 10) % 11;
+
+        if (dv1 >= 10) {
+          dv1 = 0;
+        }
+
+        if (dv1 != arrCpf[9]) {
+          alert("CPF Inválido");
+        } else {
+
+          var dv2 = 0;
+
+          for (var j = 0; j <= 9; j++) {
+            dv2 += parseInt(arrCpf[j]) * (11 - j);
+          }
+
+          dv2 = (dv2 * 10) % 11;
+
+          if (dv2 >= 10) {
+            dv2 = 0;
+          }
+
+          if (dv2 != arrCpf[10]) {
+            alert("CPF Invalido");
+          } else {
+            alert("CPF Valido");
+          }
+        }
+      }
+  </script>
+</head>
+
+<body>
+  <form>
+    <label>CPF: </label>
+    <input type="text" name="txt_cpf" maxlength="11" />
+    <button type="button" onclick="validaCpfCorreto(txt_cpf)">Validar</button>
+  </form>
+  <script>
+
+  </script>
+</body>
+
+</html>
