@@ -3,12 +3,73 @@
 <head>
   <title>Ex2</title>
   <script>
+    function calcNome(nome) {
+      var soma = 0;
+      var arrNome = nome.value.split(" ").join("").split("");
+      
+      for (var i = 0; i < arrNome.length; i++) {
+        switch (arrNome[i].toLowerCase()) {
+          case "a":
+          case "j":
+          case "s": soma += 1;
+            break;
+          case "b":
+          case "k":
+          case "t": soma += 2;
+            break;
+          case "c":
+          case "l":
+          case "u": soma += 3;
+            break;
+          case "d":
+          case "m":
+          case "v": soma += 4;
+            break;
+          case "e":
+          case "n":
+          case "w": soma += 5;
+            break;
+          case "f":
+          case "o":
+          case "x": soma += 6;
+            break;
+          case "g":
+          case "p":
+          case "y": soma += 7;
+            break;
+          case "h":
+          case "q":
+          case "z": soma += 8;
+            break;
+          case "i":
+          case "r": soma += 9;
+            break;
+        }
+      }
 
+      while (soma >= 10) {
+        var somaParcial = soma.toString().split("");
+        
+        soma = 0;
+        for (let y = 0; y < somaParcial.length; y++) {
+          soma += parseInt(somaParcial[y]);
+        }
+      }
+      
+      alert("Soma: "+soma);
+    }
   </script>
 </head>
 
 <body>
+  <form>
+    <label>Nome: </label>
+    <input type="text" name="txt_nome" />
+    <button type="button" onclick="calcNome(txt_nome)">Calcular</button>
+  </form>
+  <script>
 
+  </script>
 </body>
 
 </html>
