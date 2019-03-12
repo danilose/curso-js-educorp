@@ -1,0 +1,25 @@
+<html>
+<body>
+  <script>
+    /*
+    // escopo de variaveis
+    var numero = 72;
+    alert("alert1: " + numero);
+    funcaoExemplo = function () {
+      alert("alert2.1: " + numero);
+      var numero = 100;
+      alert("alert2.2: " + numero);
+    }
+    funcaoExemplo();
+    alert("alert3: " + numero);
+    */
+    
+    var boasVindas = new Function (" \
+      var meuNome = prompt('Digite seu nome, por favor',''); \
+      meuNome = (meuNome) ? meuNome : 'usuario desconhecido'; \
+      alert('bom dia, ' + meuNome); \
+      ");
+  </script>
+  <button type="button" onclick="boasVindas();">Chamar função</button>
+</body>
+</html>
