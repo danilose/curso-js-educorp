@@ -1,0 +1,34 @@
+<html>
+  <head><title>Ajax</title></head>
+  <script>
+    function carregarDadosArquivo() {
+      // é o objeto que permite fazer a comunicação entre o cliente e servidor
+      var xhttp = new XMLHttpRequest();
+      // o evento onreadystatechange será chamado quando a propriedade readstate for alterada
+      xhttp.onreadystatechange = function() {
+        // a propriedade readyindicar os passos que o servidor tem para fazer o recebemento da requesição do cliente e enviar o retorno
+        // verificando se o servidor está pronto para retornar as informações
+        if ( this.readyState == 4 && this.status == 200 ) {
+          document.getElementById("saida").style.color = "ff00bb";
+          document.getElementById("saida").style.fontSize = "20px";
+          document.getElementById("saida").style.background = "ffff00";
+          // responseText -> recuperar o conteudo retornado pelo servidor
+          document.getElementById("saida").innerHTML = this.responseText;
+        }
+      }
+      // open -> abrir a requisição para o servidor
+      // 1º parametro: GET -> mais rápido via url
+      //               POST -> mais lento via form
+      // 2º parametro: arquivo -> pode ser qualquer arquivo de backend, txt
+      // 3º parametro: true/false -> true -> assincrono / false -> sincrono
+      xhttp.open("GET", "dadosSaida.txt", "true");
+      xhttp.send();
+    }
+  </script>
+  <body>
+    <div id="saida">
+      <h1>Caregando dados...</h1>
+      <button onclick="carregarDadosArquivo()">Pegado dados de um arquivo texto</button>
+    </div>
+  </body>
+</html>
