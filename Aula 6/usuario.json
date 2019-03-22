@@ -1,0 +1,33 @@
+[
+{ 
+  "idUsuario" : 1,
+  "nomeUsuario" : "Marcia Correa",
+  "login" : "marcia",
+  "senha" : "teste123",
+  "email" : "marciac@unicamp.br"
+},
+{ 
+  "idUsuario" : 2,
+  "nomeUsuario" : "Anderson Nascimento",
+  "login" : "nascimento",
+  "senha" : "xpto123",
+  "email" : "nascimento@ig.com.br"
+},
+{ 
+  "idUsuario" : 3,
+  "nomeUsuario" : "Bruno Ximenes",
+  "login" : "ximenes",
+  "senha" : "naosei",
+  "email" : "ximenes@yahoo.com"
+},
+{ 
+  "idUsuario" : 5,
+  "nomeUsuario" : "Bruna Lopes",
+  "login" : "brunaL",
+  "senha" : "coisadoida",
+  "email" : "lopes@ig.com.br"
+}
+
+
+
+]

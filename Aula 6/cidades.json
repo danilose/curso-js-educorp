@@ -1,0 +1,22 @@
+[
+{ 
+  "idCidade" : 1,
+  "cidade" : "Araxá",
+  "imagem" : "araxa.jpg"
+},
+{
+  "idCidade" : 2,
+  "cidade" : "Rio de Janeiro",
+  "imagem" : "rio.jpg"
+},
+{ 
+  "idCidade" : 3,
+  "cidade" : "São Paulo",
+  "imagem" : "saopaulo.jpg"
+},
+{ 
+  "idCidade" : 4,
+  "cidade" : "Campinas",
+  "imagem" : "campinas.jpg"
+}
+]

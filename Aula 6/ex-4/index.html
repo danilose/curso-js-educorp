@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Vitrine virtual</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <img src="logo.png" alt="" width="100" height="100">
+      <ul>
+        <li>Home</li>
+        <li>Produtos</li>
+        <li>Contato</li>
+      </ul>
+    </div>
+    <hr>
+    <div><h1>Veja nossos produtos</h1></div>
+    <div id="categorias">
+      <ul>
+        <li><button id="btnCasa">Casa</button></li>
+        <li><button id="btnEscritorio">Escritório</button></li>
+        <li><button id="btnJardim">Jardim</button></li>
+      </ul>
+    </div>
+    <div id="resultado"></div>
+    <script type="text/javascript" src="dadosJSON.js"></script>
+    <script>
+      $().ready(function(){
+        $(".casa").hide();
+        $(".escritorio").hide();
+        $(".jadim").show();
+
+      });
+    </script>
+  </body>
+</html>

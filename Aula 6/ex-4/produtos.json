@@ -1,0 +1,74 @@
+[
+{ 
+  "idProduto" : 1,
+  "categoria" : "casa",
+  "nome" : "Mesa",
+  "imagem" : "mesa.jpg"
+},
+{
+  "idProduto" : 2,
+  "categoria" : "casa",
+  "nome" : "Cadeira",
+  "imagem" : "cadeira.jpg"
+},
+{ 
+  "idProduto" : 3,
+  "categoria" : "casa",
+  "nome" : "Sofá",
+  "imagem" : "sofa.jpg"
+},
+{ 
+  "idProduto" : 4,
+  "categoria" : "casa",
+  "nome" : "Puff",
+  "imagem" : "puff.jpg"
+},
+{ 
+  "idProduto" : 5,
+  "categoria" : "escritorio",
+  "nome" : "Caneta",
+  "imagem" : "caneta.jpg"
+},
+{ 
+  "idProduto" : 6,
+  "categoria" : "escritorio",
+  "nome" : "Caderno",
+  "imagem" : "caderno.jpg"
+},
+{ 
+  "idProduto" : 7,
+  "categoria" : "escritorio",
+  "nome" : "Pasta",
+  "imagem" : "pasta.jpg"
+},
+{ 
+  "idProduto" : 8,
+  "categoria" : "escritorio",
+  "nome" : "Lápis",
+  "imagem" : "lapis.jpg"
+},
+{ 
+  "idProduto" : 9,
+  "categoria" : "jardim",
+  "nome" : "Regador",
+  "imagem" : "regador.jpg"
+},
+{ 
+  "idProduto" : 10,
+  "categoria" : "jardim",
+  "nome" : "Vaso",
+  "imagem" : "vaso.jpg"
+},
+{ 
+  "idProduto" : 11,
+  "categoria" : "jardim",
+  "nome" : "Pedras",
+  "imagem" : "pedras.jpg"
+},
+{ 
+  "idProduto" : 12,
+  "categoria" : "jardim",
+  "nome" : "Mangueira",
+  "imagem" : "mangueira.jpg"
+}
+]

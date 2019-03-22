@@ -1,0 +1,18 @@
+<html>
+<head><title></title>
+<script>
+  var request = new XMLHttpRequest();
+  var url = 'usuario.json';
+  request.open('GET',url,true); 
+  request.onload = function() {
+    // parse - transforma a string em "objeto"
+    var dados = JSON.parse(request.responseText);
+    var mensagem = "ID do USUARIO = " + dados[0].idUsuario + "\n";
+    mensagem += "NOME do USUARIO = " + dados[0].nomeUsuario + "\n";
+    mensagem += "EMAIL do USUARIO = " + dados[0].email;
+    alert(mensagem);
+  }
+  request.send();
+</script></head>
+<body>
+</body></html>
