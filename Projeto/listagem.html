@@ -40,41 +40,30 @@
     <br>
 
     <div class="row">
-      <div class="col">
+      <div class="col-12 shadow p-3 mb-5 bg-white rounded text-center">
         <h1>Veja nossos produtos</h1>
+        <br>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="selectCategorias">Categorias</label>
+          </div>
+          <select class="custom-select" id="selectCategorias">
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="selectProdutos">Produtos</label>
+          </div>
+          <select class="custom-select" id="selectProdutos">
+            <option selected>Escolha uma categoria primeiro</option>
+          </select>
+        </div>
+        <div id="descricao-produto"></div>
       </div>
+
+
     </div>
 
-    <br>
-
-    <div class="card-deck">
-      <div class="card bg-dark text-white" style="cursor: pointer;" id="btnCasa">
-        <img src="casa.jpg" class="card-img-top">
-        <div class="card-img-overlay" style="background-color:rgba(0, 0, 0, 0.5)">
-          <h2 class="card-title align-middle" >Casa</h2>
-        </div>
-      </div>
-      <div class="card bg-dark text-white" style="cursor: pointer;" id="btnEscritorio">
-        <img src="escritorio.jpg" class="card-img-top">
-        <div class="card-img-overlay" style="background-color:rgba(0, 0, 0, 0.5)">
-          <h2 class="card-title">Escritório</h2>
-        </div>
-      </div>
-      <div class="card bg-dark text-white" style="cursor: pointer;" id="btnJardim">
-        <img src="jardim.jpg" class="card-img-top">
-        <div class="card-img-overlay" style="background-color:rgba(0, 0, 0, 0.5)">
-          <h2 class="card-title">Jardim</h2>
-        </div>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-4" id="resultado"></div>
-      <div class="col-8 shadow p-3 mb-5 bg-white rounded" id="descricao"></div>
-    </div>
-    
   </div>
 
   <!-- Optional JavaScript -->
@@ -87,54 +76,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="dadosJSON.js"></script>
-  <script>
-    $().ready(function () {
-      $(".casa").hide();
-      $(".escritorio").hide();
-      $(".jardim").hide();
-      $("#descricao").hide();
-
-      $("#btnCasa").click(function () {
-        $(".casa").show();
-        $(".escritorio").hide();
-        $(".jardim").hide();
-        $("#descricao").hide();
-      });
-
-      $("#btnEscritorio").click(function () {
-        $(".casa").hide();
-        $(".escritorio").show();
-        $(".jardim").hide();
-        $("#descricao").hide();
-      });
-
-      $("#btnJardim").click(function () {
-        $(".casa").hide();
-        $(".escritorio").hide();
-        $(".jardim").show();
-        $("#descricao").hide();
-      });
-
-      $("a").click(function (evt) {
-        evt.preventDefault();   // tira a funcionalidade de link
-        var href = $(this).attr('href');
-
-        $.ajax({
-          type: "POST",
-          url: href + ".html",
-          // data: "",  // não iremos usar pq os dados virão do arquivo PHP
-          beforeSend: function () {
-            $("#descricao").show();
-          },
-          success: function (data) {
-            $("#descricao").html(data);
-          }
-        });
-      });
-
-    });
-  </script>
+  <script type="text/javascript" src="assets/js/listagem.js"></script>
 
 </body>
 

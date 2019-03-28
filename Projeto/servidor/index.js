@@ -79,8 +79,33 @@ rota.patch('/clientes/:id', (req,res)=>{
   execSQLQuery(`UPDATE clientes SET nome_cliente = '${nomecliente}', data_niver = '${dataaniver}', email = '${email}' WHERE id_cliente = ${id}`, res);
 });
 
+// Rota para verificar o login
 rota.post('/login', (req,res)=>{
   const login = req.body.login.substring(0,60);
   const senha = req.body.senha.substring(0,60);
   execSQLQuery(`SELECT * FROM clientes WHERE login = '${login}' AND senha = '${senha}'`, res);
+});
+
+// Rota para buscar as categotias dos produtos
+rota.get('/categorias', (req,res)=>{
+  execSQLQuery('SELECT * FROM categoriaprodutos', res);
+});
+
+// Rota para buscar os produtos
+rota.get('/produtos', (req,res)=>{
+  execSQLQuery('SELECT * FROM produtos', res);
+});
+
+// Rota para buscar um produto pelo id
+rota.get('/produtos/:id', (req,res)=>{
+  let filtro = '';
+  if (req.params.id) filtro = ' WHERE id_prod = ' + parseInt(req.params.id);
+  execSQLQuery('SELECT * FROM produtos' + filtro, res);
+});
+
+// Rota para buscar um produto pelo id
+rota.get('/categoriaprodutos/:id', (req,res)=>{
+  let filtro = '';
+  if (req.params.id) filtro = ' WHERE id_categ_prod = ' + parseInt(req.params.id);
+  execSQLQuery('SELECT * FROM produtos' + filtro, res);
 });

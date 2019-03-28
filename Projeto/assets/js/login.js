@@ -15,26 +15,26 @@ $(document).ready(function () {
       senha = $("#inputSenha").val();
     }
 
-    $.getJSON(url + "/" + idCliente, function (result) {
-      var arr = result;
-      var out = "<table class='table table-striped'>";
+    $.ajax({
+      url: url,
+      type:"POST",
+      dataType:"json",
+      contentType:"application/x-www-form-urlencoded",
+      data:{
+        login:login,
+        senha:senha
+      },
 
-      for (var i = 0; i < arr.length; i++) {
-        out += "<tr><td>" + arr[i].id_cliente + "</td><td>" + arr[i].nome_cliente + "</td><td>" + arr[i].email + "</td></tr>"
+      success: function( data )
+      {
+        if (data.length > 0) {
+          $("#msgerro").html("");
+          window.location.replace("listagem.html");
+        } else {
+          $("#msgerro").html("Login ou senha incorretos!");
+        }
       }
-      out += "</table>";
-      document.getElementById("id01").innerHTML = out;
     });
   }));
 
-  $.getJSON(url, function (result) {
-    var arr = result;
-    var out = "<table class='table table-striped'>";
-
-    for (var i = 0; i < arr.length; i++) {
-      out += "<tr><td>" + arr[i].id_cliente + "</td><td>" + arr[i].nome_cliente + "</td><td>" + arr[i].email + "</td></tr>"
-    }
-    out += "</table>";
-    document.getElementById("id01").innerHTML = out;
-  });
 });
