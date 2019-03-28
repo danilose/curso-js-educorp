@@ -54,3 +54,27 @@ rota.get('/clientes/:id', (req,res)=>{
   if (req.params.id) filtro = ' WHERE id_cliente = ' + parseInt(req.params.id);
   execSQLQuery('SELECT * FROM clientes' + filtro, res);
 });
+
+// inserir a rota para o delete
+rota.delete('/clientes/:id', (req,res)=>{
+  let filtro = '';
+  if (req.params.id) filtro = ' WHERE id_cliente = ' + parseInt(req.params.id);
+  execSQLQuery('DELETE FROM clientes' + filtro, res);
+});
+
+// inserir a rota para o insert
+rota.post('/clientes', (req,res)=>{
+  const nomecliente = req.body.nome.substring(0,40);
+  const dataaniver = req.body.dataaniver.substring(0,10);
+  const email = req.body.email.substring(0,60);
+  execSQLQuery(`INSERT INTO clientes (nome_cliente, data_niver, email) VALUES ('${nomecliente}','${dataaniver}','${email}')`, res);
+});
+
+// inserir a rota para o update
+rota.patch('/clientes/:id', (req,res)=>{
+  const id = parseInt(req.params.id);
+  const nomecliente = req.body.nome.substring(0,40);
+  const dataaniver = req.body.dataaniver.substring(0,10);
+  const email = req.body.email.substring(0,60);
+  execSQLQuery(`UPDATE clientes SET nome_cliente = '${nomecliente}', data_niver = '${dataaniver}', email = '${email}' WHERE id_cliente = ${id}`, res);
+});
