@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="estilo.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>        
+</head>
+    <body>
+        <h2>Listagem Clientes</h2>
+        
+            <label for="">id Cliente</label>
+            <input type="text" id="idCliente" />
+            <button id="btnEnviar">Buscar</button>
+        
+        <div id="id01"></div>
+
+    </body>
+    </html>
+    <script>
+        var url = "http://localhost:3000/clientes";
+        $(document).ready( function (){
+
+            if($("#btnEnviar").click(function(){
+                if($("#idCliente").val()){
+                    var idCliente = $("#idCliente").val();
+                } else {
+                    var idCliente = '';
+                }
+
+                $.getJSON(url + "/" + idCliente , function(result){
+                var arr = result;
+                var out = "<table class='table table-striped'>";
+                    
+                    for (var i=0; i< arr.length; i++){
+                        out += "<tr><td>" + arr[i].id_cliente + "</td><td>" + arr[i].nome_cliente + "</td><td>" + arr[i].email + "</td></tr>"
+                    }
+                    out += "</table>";
+                    document.getElementById("id01").innerHTML = out;
+                });
+            }));
+
+            $.getJSON(url, function(result){
+                var arr = result;
+                var out = "<table class='table table-striped'>";
+                    
+                    for (var i=0; i< arr.length; i++){
+                        out += "<tr><td>" + arr[i].id_cliente + "</td><td>" + arr[i].nome_cliente + "</td><td>" + arr[i].email + "</td></tr>"
+                    }
+                    out += "</table>";
+                    document.getElementById("id01").innerHTML = out;
+            });
+        });
+    </script>

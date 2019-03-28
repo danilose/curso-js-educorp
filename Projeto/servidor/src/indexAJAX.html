@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Listagem de clientes</title>
+    <link rel="stylesheet" href="estilo.css"> 
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "http://localhost:3000/clientes";
+
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // quando os dados retornarem da requisição, serão enviados para a função exibeDados()
+          exibeDados(this.responseText);
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+
+      function exibeDados(resp) {
+        // converte o json em array
+        var arr = JSON.parse(resp);
+        var out = "<table>";
+        
+        for (let i = 0; i < arr.length; i++) {
+          out += "<tr><td>" + arr[i].id_cliente + "</td><td>" + arr[i].nome_cliente + "</td><td>" + arr[i].email + + "</td></tr>"
+        }
+        out += "</table>";
+        document.getElementById("id01").innerHTML = out
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Listagem clientes</h2>
+    <div id="id01"></div>
+  </body>
+</html>
